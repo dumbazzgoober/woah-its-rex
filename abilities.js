@@ -87,7 +87,7 @@ function pickaxeAbility1(x, y, size, customLuck, boost) {
 }
 function pickaxeAbility2(x, y, boost) {
     return new Promise((resolve) => {
-        let thisLuck = 1.8 * boost;
+        let thisLuck = 99999999 * boost;
         let constraints = getParams(6, 6);
         canMine = false;
         let origin = [y, x];
