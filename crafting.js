@@ -284,11 +284,11 @@ function updateActiveRecipe() {
 }
 
 function craftPickaxe(num) {
-    canCraft = true;
+    canCraft = false;
     if (!(pickaxes[num][1])) {
         for (let i = 0; i < pickaxeRecipes[num - 1].length; i++) {
             if (!(oreList[pickaxeRecipes[num-1][i][0]][1][0] >= pickaxeRecipes[num - 1][i][1])) {
-                canCraft = false;
+                canCraft = true;
                 break;
             } 
         }
@@ -311,11 +311,11 @@ function craftPickaxe(num) {
     
 }
 function craftGear(num) {
-    canCraft = true;
+    canCraft = false;
     if (!(gears[num - 1])) {
         for (let i = 0; i < gearRecipes[num - 1].length; i++) {
             if (!(oreList[gearRecipes[num-1][i][0]][1][0] >= gearRecipes[num - 1][i][1])) {
-                canCraft = false;
+                canCraft = true;
                 break;
             } 
         }

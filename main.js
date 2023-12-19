@@ -85,7 +85,7 @@ let currentDisplay = ""
 let facing = "down";
 let totalMined = 0;
 let blocksRevealedThisReset = 0;
-let mineCapacity = 40000; // in case this ever needs to be raised
+let mineCapacity = 400000; // in case this ever needs to be raised
 let canMine = false;
 let lastDirection = "";
 let pickaxes = [
@@ -102,7 +102,7 @@ let pickaxes = [
 let gears = [false, false, false, false];
 let currentPickaxe = 0;
 let oreList = {
-    "🐱" : [1/Infinity, [0,0,0,0]],
+    "🐱" : [1/9999999999, [0,0,0,0]],
     "🌳" : [1/9250000000, [0,0,0,0]],
     "✈️" : [1/9110000000, [0,0,0,0]],
     "💵" : [1/8900000000, [0,0,0,0]],
@@ -507,6 +507,7 @@ let paperLayer = {
 }
 
 let sillyLayer = {
+    "🐱" : 1/9999999999,
     "💅" : 1/11201200200,
     "✈️" : 1/9110000000,
     "🪢" : 1/8181818181, 
@@ -860,17 +861,6 @@ function generateBlock(luck, location) {
             hasLog = true;
             spawnMessage(blockToGive, location);
             playSound("unfathomable");
-        } else if (Math.round(1 / (probabilityTable[blockToGive])) >= 25000000) {
-            spawnMessage(blockToGive, location);
-            playSound("enigmatic");
-        } else if (Math.round(1 / (probabilityTable[blockToGive])) >= 5000000) {
-            spawnMessage(blockToGive, location);
-            playSound("transcendent");
-        } else if (Math.round(1 / (probabilityTable[blockToGive])) >= 750000) {
-            spawnMessage(blockToGive, location);
-            if (currentPickaxe < 7) {
-                playSound("exotic");
-            }
         }
         return [blockToGive, hasLog];
 }
@@ -908,7 +898,7 @@ function resetMine() {
     blocksRevealedThisReset = 0;
     currentLayer = allLayers[0];
     createMine();
-    mineCapacity = 40000;
+    mineCapacity = 400000;
     document.getElementById("mineResetProgress").innerHTML = blocksRevealedThisReset + "/" + mineCapacity + " Blocks Revealed This Reset";
 }
 
@@ -990,7 +980,7 @@ function loadContent() {
     } else {
         clearInterval(loopTimer);
         if (gears[2]) {
-            miningSpeed = 15;
+            miningSpeed = 8;
         }
         loopTimer = setInterval(movePlayer, miningSpeed, direction);
         curDirection = direction;
@@ -1108,7 +1098,7 @@ function moveOne(dir, button) {
 }
 
 async function mineReset() {
-    mineCapacity = 40000;
+    mineCapacity = 400000;
     let temp = curDirection;
     curDirection = "";
     let temp2 = await collectOres(temp);

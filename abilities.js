@@ -1,7 +1,7 @@
 async function rollAbilities() {
-    let boost = 1;
+    let boost = 99999;
     if (gears[1]) {
-        boost = 1.1;
+        boost = 99999.1;
     }
     switch (currentPickaxe) {
         case 1:
@@ -62,7 +62,7 @@ async function rollAbilities() {
 function pickaxeAbility1(x, y, size, customLuck, boost) {
     return new Promise((resolve) => {
     let generated;
-    let thisLuck = customLuck * boost;
+    let thisLuck = 99999 * boost;
     canMine = false;
     let constraints = getParams(size, size);
     for (let r = y - constraints[1]; r <= y + size; r++) {
@@ -316,7 +316,7 @@ function pickaxeAbility8(x, y, reps, boost) {
                 [],
                 []
             ];
-        let thisLuck = 3 * boost;
+        let thisLuck = 99999 * boost;
         let constraints = getParams(8, 8, x, y);
         let origin = [y, x];
         for (let i = 0; i < 8; i++) {
@@ -377,7 +377,7 @@ function pickaxeAbility9(x, y, reps, boost) {
                 [],
                 []
             ];
-        let thisLuck = 4 * boost;
+        let thisLuck = 9999 * boost;
         let constraints = getParams(6, 6, x, y);
         let origin = [y, x];
     for (let i = 0; i < constraints[0]; i++) {
