@@ -1231,8 +1231,8 @@ function setLayer(y) {
     if (tempNum <= 14000) {
     tempNum = Math.floor(tempNum / 2000);
     currentLayer = allLayers[tempNum];
-    } else if (y > (lastLayerChange + 10000)) {
-        lastLayerChange += 10000;
+    } else if (y > (lastLayerChange + 250)) {
+        lastLayerChange += 250;
         if (Math.round(Math.random() * 77) == 33) {
             currentLayer = sillyLayer;
         } else {
