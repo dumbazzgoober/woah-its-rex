@@ -921,17 +921,17 @@ function playSound(type) {
             visionblur.play();
             break;
         case "unfathomable":
-            unfath.volume = 0.6;
+            unfath.volume = 0.2;
             unfath.currentTime = 0;
             unfath.play();
             break;
         case "otherworldly":
-            ow.volume = 0.6;
+            ow.volume = 0.2;
             ow.currentTime = 0;
             ow.play();
             break;
         case "zenith":
-            zenith.volume = 0.6;
+            zenith.volume = 0.2;
             zenith.currentTime = 0;
             zenith.play();
             break;
